@@ -9,6 +9,17 @@ class Employee:
             self.commission = 0
             self.no_contracts = 0
 
+        def set_monthly_salary(self, num):
+            self.monthly_salary = num
+        def set_hourly_wage(self, num):
+            self.hourly_wage = num
+        def set_hours_worked(self, num):
+            self.hours_worked = num
+        def set_commission(self, num):
+            self.commission = num
+        def set_no_contracts(self, num):
+            self.no_contracts = num
+
         def get_pay(self):
             #calculates contract pay
             if (self.monthly_salary > 0):
@@ -39,16 +50,8 @@ class Employee:
             payment_string = payment_string + '. Their total pay is ' + str(self.pay) + '.'
             return payment_string
 
-        def set_monthly_salary(self, num):
-            self.monthly_salary = num
-        def set_hourly_wage(self, num):
-            self.hourly_wage = num
-        def set_hours_worked(self, num):
-            self.hours_worked = num
-        def set_commission(self, num):
-            self.commission = num
-        def set_no_contracts(self, num):
-            self.no_contracts = num
+        
+#good variable name num
 
 # Billie works on a monthly salary of 4000.  Their total pay is 4000.
 billie = Employee('Billie')
