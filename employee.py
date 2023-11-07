@@ -30,25 +30,25 @@ class Employee:
             #calcuales commission pay
             if (self.commission > 0 and self.no_contracts == 0):
                 self.pay = self.pay + self.commission
-            elif (self.commission > 0 and self.no_contracts):
+            elif (self.commission > 0 and self.no_contracts > 0):
                 self.pay = self.pay + (self.commission * self.no_contracts)
             #returns total pay
             return self.pay
 
         def __str__(self):
-            #self.get_pay() # calculates pay
-            payment_string = self.name # adds employee name to string
-            if (self.monthly_salary > 0):
-                payment_string = payment_string + ' works on a monthly salary of ' + str(self.monthly_salary)
-            elif (self.hourly_wage > 0 and self.hours_worked > 0):
-                payment_string = payment_string + ' works on a contract of ' + str(self.hours_worked) + ' hours at ' + str(self.hourly_wage) + '/hour'
-            
-            if (self.commission > 0 and self.no_contracts == 0):
-                payment_string = payment_string + ' and receives a bonus commission of ' + str(self.commission)
-            elif (self.commission > 0 and self.no_contracts):
-                payment_string = payment_string + ' and recieves a commission for ' + str(self.no_contracts) + ' contracts(s) at ' + str(self.commission) + '/contract'
+            payment_string = self.name  # adds employee name to string
+            if self.monthly_salary > 0:
+                payment_string += f' works on a monthly salary of {self.monthly_salary}'
+            elif self.hourly_wage > 0 and self.hours_worked > 0:
+                payment_string += f' works on a contract of {self.hours_worked} hours at {self.hourly_wage}/hour'
 
-            payment_string = payment_string + '. Their total pay is ' + str(self.pay) + '.'
+            if self.commission > 0 and self.no_contracts == 0:
+                payment_string += f' and receives a bonus commission of {self.commission}'
+            elif self.commission > 0 and self.no_contracts > 0:
+                payment_string += f' and receives a commission for {self.no_contracts} contract(s) at {self.commission}/contract'
+
+            payment_string += f'. Their total pay is {self.pay}.'  
+
             return payment_string
 
 
