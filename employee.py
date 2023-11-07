@@ -24,8 +24,9 @@ class Employee:
             #calculates contract pay
             if (self.monthly_salary > 0):
                 self.pay = self.pay + self.monthly_salary
-            elif (self.hourly_wage>0 and self.hours_worked >0):
+            elif (self.hourly_wage > 0 and self.hours_worked > 0):
                 self.pay = self.pay + (self.hourly_wage * self.hours_worked)
+
             #calcuales commission pay
             if (self.commission > 0 and self.no_contracts == 0):
                 self.pay = self.pay + self.commission
@@ -35,12 +36,12 @@ class Employee:
             return self.pay
 
         def __str__(self):
-            self.get_pay()
-            payment_string = self.name
+            #self.get_pay() # calculates pay
+            payment_string = self.name # adds employee name to string
             if (self.monthly_salary > 0):
-                payment_string = payment_string + ' works a monthly salary of ' + str(self.monthly_salary)
-            elif (self.hourly_wage>0 and self.hours_worked >0):
-                payment_string = payment_string + ' works on a contract of ' + str(self.hours_worked) + ' at ' + str(self.hourly_wage) + '/hour'
+                payment_string = payment_string + ' works on a monthly salary of ' + str(self.monthly_salary)
+            elif (self.hourly_wage > 0 and self.hours_worked > 0):
+                payment_string = payment_string + ' works on a contract of ' + str(self.hours_worked) + ' hours at ' + str(self.hourly_wage) + '/hour'
             
             if (self.commission > 0 and self.no_contracts == 0):
                 payment_string = payment_string + ' and receives a bonus commission of ' + str(self.commission)
@@ -50,8 +51,6 @@ class Employee:
             payment_string = payment_string + '. Their total pay is ' + str(self.pay) + '.'
             return payment_string
 
-        
-#good variable name num
 
 # Billie works on a monthly salary of 4000.  Their total pay is 4000.
 billie = Employee('Billie')
